@@ -1,0 +1,13 @@
+{
+  "attendees": [
+    {
+      "name": "bob",
+      "dietaryRestriction": "",
+      "rsvp": true,
+      "plusOne": "bailey",
+      "plusAttend": false,
+      "note": "",
+      "songRec": ""
+    }
+  ]
+}

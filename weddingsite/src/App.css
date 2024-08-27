@@ -1,0 +1,313 @@
+
+.home{
+  background-image: url('../public/penny_bridge.JPG');
+  background-size: cover; /* Adjust to 'contain' or other values as needed */
+  background-position: center; /* Adjust as needed */
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+.rsvp_img{
+  /*background-image: url('../public/dance.png');*/
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 35%; /* Adjust width as needed */
+  height: auto; /* Adjust height as needed */
+  /*z-index: 9999;*/
+  transform: scaleX(-1);
+
+}
+.App-menu {
+  position: fixed; /* or 'absolute' depending on your needs */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /*background-color: rgba(0, 0, 0, 0.7); !* Semi-transparent background for better visibility *!*/
+  z-index: 1000; /* Ensure the navigation is above other elements */
+}
+
+.App-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 50px; /* Adjust as needed */
+  margin-right: 50px;
+}
+
+.App-menu li {
+  margin-right: 50px;
+}
+
+.App-menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.App-menu a:hover {
+  color: #61dafb;
+}
+.pageContent{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+.radio_list{
+  font-size: 24px;
+}
+.big{
+  min-height: 65vh;
+  max-height: 75vh;
+  height:auto;
+  width: auto;
+
+}
+.small{
+  min-height: 35vh;
+  max-height: 45vh;
+  height:auto;
+  width: auto;
+
+}
+.medium{
+  min-height: 45vh;
+  max-height: 55vh;
+  height:auto;
+  width: auto;
+
+}
+.gallery-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.image-container {
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the darkness of the overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.gallery-image{
+  transition: filter 0.3s ease-in-out;
+}
+
+.image-container:hover .gallery-image {
+  filter: brightness(70%); /* Adjust the darkness of the image on hover */
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-description {
+  color: white;
+  text-align: center;
+}
+.faq_image{
+  max-height: 25vh;
+  width: auto;
+}
+.list_tag {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Change text color to your desired color */
+}
+
+/* Optionally, you can add styles for when the link is hovered or visited */
+.list_tag:hover {
+  text-decoration: underline; /* Underline on hover, for user feedback */
+}
+
+.list_tag:visited {
+  color: #663399; /* Change visited link color to your desired color */
+}
+/*.App{*/
+/*  display: flex;*/
+/*}*/
+/*.registry-container{*/
+/*  width: 15em;*/
+/*  height: 17em;*/
+/*  border-radius: 5px;*/
+/*  border: black solid 2px ;*/
+/*}*/
+/*.registry-image{*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  max-width: 100%;*/
+/*}*/
+
+
+.registry-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content horizontally */
+  margin: 10px; /* Adjust margin as needed */
+  width: 250px; /* Set a fixed width for each card */
+  height: 300px; /* Set a fixed height for each card */
+  border-radius: 5px;
+  border: black solid 2px ;
+}
+
+.registry-image {
+  width: 100%; /* Make the image take up the full width of its container */
+  height: auto; /* Set a fixed height for all images */
+  max-height: 200px;
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  /*border-radius: 8px; !* Optional: Add rounded corners *!*/
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+.registry-button {
+  display: inline-block;
+  /*width: 80%;*/
+  padding: 3px;
+  padding-right: 5px;
+  padding-left: 5px;/* Adjust the padding as needed */
+  border-radius: 5px; /* This makes the button round */
+  background-color: #046307;
+  color: white;
+  text-align: center;
+  text-decoration: none; /* Remove underlines for links */
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+/* Optional: Hover effect */
+.registry-button:hover {
+  background-color: #27592D;
+  /* Add any additional styles for hover effect */
+}
+.middle-panel{
+  padding-top: 15em;
+  padding-bottom: 10em;
+}
+
+.cursive{
+  font-family: 'Mrs Saint Delafield', cursive;font-family: 'Mrs Saint Delafield', cursive;
+}
+.dateHeader{
+  font-family: 'Dynalight', cursive;
+  font-size: 64px;
+  /*font-weight: bold;*/
+}
+.rsvpHeader{
+  font-family: 'Dynalight', cursive;
+  font-size: 32px;
+  /*font-weight: bold;*/
+}
+.address_sub{
+  font-size: 24px;
+  /*font-weight: bold;*/
+}
+
+.sub_button{
+  padding: 15px 40px;
+  background: #000;
+  border:0;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 12px;
+  letter-spacing: 3px;
+  position: relative;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  display: block;
+  margin: 100px auto;
+}
+
+.sub_button::after,
+.sub_button::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.sub_button::after{
+  width: 30px;
+  height: 1px;
+  background: white;
+  transform: translateX(-3px);
+  margin-top: 0px;
+}
+
+.sub_button::before{
+  content: "";
+  transform: rotate(-135deg) translateX(50%);
+  width: 11px;
+  height: 11px;
+  background: transparent;
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  margin-top: -1px;
+}
+
+
+.sub_button:hover{
+  padding: 15px 60px 15px 20px;
+}
+
+.sub_button:hover::after,
+.sub_button:hover::before{
+  opacity: 1;
+  right: 15px;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Hide default radio button */
+/* Hide the default radio button */
+input[type="radio"] {
+  display: none;
+}
+
+/* Style the labels to act as the custom radio button boxes */
+.radio-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.radio-item label {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+/* Change background color when the radio button is checked */
+.radio-item.red-bg input:checked + label {
+  background-color: red;
+}
+
+.radio-item.green-bg input:checked + label {
+  background-color: green;
+}
+
