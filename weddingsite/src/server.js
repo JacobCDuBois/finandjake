@@ -1,3 +1,5 @@
+
+let dotenv = require('dotenv').config();
 const mysql = require('mysql2');
 const express = require('express');
 const cors = require('cors');
@@ -6,10 +8,16 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3001;
 
+
+console.log(dotenv)
+const password = process.env.DB_PASSWORD
+console.log(process.env)
+const host = process.env.DB_HOST
+
 const db = mysql.createConnection({
-    host: 'db-mysql-nyc3-60839-do-user-17563879-0.k.db.ondigitalocean.com',
+    host: '',
     user: 'doadmin',
-    password: 'AVNS_mcWc4O8StWQynvkvtcD',
+    password: '',
     database: 'defaultdb',
     port: 25060
 });
