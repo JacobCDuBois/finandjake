@@ -9,6 +9,7 @@ import NavMenu from "./navMenu";
 import Gallery from "./gallery";
 import RSVP from "./rsvp";
 import HomePage from "./homePage";
+import QuizPage from "./quizPage";
 function Home() {
     return (
 
@@ -23,7 +24,7 @@ function RSVPTab() {
 
         <div className="section" >
 
-            <div className="pageContent">
+            <div className="pageContent pt-5">
                 <RSVP/>
             </div>
 
@@ -42,11 +43,19 @@ function FAQ() {
 
 function Wishlist() {
     return (
-        <div className="section" >
-            <div>Wishlist Content</div>
+        <div className="registry_section" >
+
             <Registry></Registry>
         </div>
     );
+}
+function Quiz(){
+    return(
+        <div className="section" >
+            <QuizPage></QuizPage>
+
+        </div>
+    )
 }
 
 function Timeline() {
@@ -60,8 +69,8 @@ function Timeline() {
 
 function App() {
     return (
-        <Router>
-            <div className="App">
+        <Router >
+            <div className="App bg_main">
                 <NavMenu/>
                 <div className="App-body">
                     <Routes>
@@ -70,6 +79,7 @@ function App() {
                         <Route path="/faq" element={<FAQ />} />
                         <Route path="/wishlist" element={<Wishlist />} />
                         <Route path="/timeline" element={<Timeline />} />
+                        <Route path="/quiz" element={<Quiz />} />
                     </Routes>
                 </div>
                 {/*<RSVP/>*/}

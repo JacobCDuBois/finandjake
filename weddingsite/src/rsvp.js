@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import bud from './bgAssets/bud.png'
+import sunflower from './bgAssets/sunflower.png'
 const RSVP = () => {
     const [name, setName] = useState('')
     const [isInvited, setIsInvited] = useState(false)
@@ -22,7 +23,6 @@ const RSVP = () => {
             try {
                 // Prepare the entry data for the current guest
                 const entryData = {
-                    index:guest.index,
                     name: guest.name,
                     invite: guest.invite,
                     diet: diet,
@@ -117,6 +117,7 @@ const RSVP = () => {
                 // If invited, move to the next step
                 setStanford(true)
             }
+            // setStanford(true)
         } catch (error) {
             console.error('Error checking invite list:', error);
         }
@@ -141,9 +142,40 @@ const RSVP = () => {
             console.error('Error checking invite list:', error);
         }
     }
+    const fetchSimilarNames = async (inputName) => {
+        if (inputName.trim().length < 2) {
+            setChoices([]); // Clear choices if input is too short
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:3001/check-list', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: inputName }), // Send the current name state
+            });
+
+            const data = await response.json();
+            console.log(data.exists.length);
+
+            if (data.exists.length > 0) {
+                setChoices(data.exists); // Update choices with matched names
+            } else {
+                setChoices([]); // Clear choices if no matches
+            }
+        } catch (error) {
+            console.error('Error fetching similar names:', error);
+        }
+    };
+    const handleNameChange = (e) => {
+        const inputName = e.target.value;
+        setName(inputName); // Update name state
+        fetchSimilarNames(inputName); // Fetch similar names based on input
+    };
     const handleNameSubmit = async () => {
         console.log(name)
-        // Make a request to check if the name is in the invite list (invitelist.json)
         // // You can use fetch or any HTTP library for this purpose
         try {
             const response = await fetch('http://localhost:3001/check-list', {
@@ -183,25 +215,34 @@ const RSVP = () => {
     console.log(guests)
     return (
         <div className="d-flex flex-column col-md-8 ">
-            <div>
-                <img src='dance.png' className="rsvp_img"/>
-            </div>
+            {/*<div>*/}
+            {/*    <img src={danceimage} className="rsvp_img"/>*/}
+            {/*</div>*/}
+            <img src={sunflower} className="rsvp_corner_r"/>
+            <img src={bud} className="rsvp_corner_l disappear"/>
+
             <div className="row justify-content-center">
-                {!isInvited && choices.length<1 &&(
+                {!isInvited &&(
                     <div className="col-md-7">
                         <div className="row justify-content-center">
-                            <label htmlFor="name" className="rsvpHeader">Your Name:</label>
+                            <label htmlFor="name" className="rsvpHeader ">Your Name:</label>
                         </div>
                         <div className="row justify-content-center">
                             <div className="col-md-8 ">
                                 <input
                                     type="text"
                                     id="name"
-                                    className="w-100"
+                                    className="w-100 input_box"
                                     name="name"
                                     value={name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    onChange={handleNameChange}
+                                    list="name-suggestions"
                                 />
+                                <datalist id="name-suggestions">
+                                    {choices.map((choice, index) => (
+                                        <option key={index} value={choice.name} />
+                                    ))}
+                                </datalist>
                             </div>
                             <div className="col-md-3">
                                 <button className="sub_button" onClick={handleNameSubmit}>submit</button>
@@ -212,36 +253,32 @@ const RSVP = () => {
 
 
                     </div>
+
                 )}
-                {!isInvited && choices.length > 0 && (
-                    <div className="col-md-7">
-                        <div className="row justify-content-center">
-                            <label htmlFor="name" className="rsvpHeader">Did You Mean:</label>
-                        </div>
-                        <div className="row justify-content-center">
-                            <div className="col-md-8 ">
+                {/*{choices.length > 0 && (*/}
+                {/*    <div className="col-md-7">*/}
+                {/*        <div className="row justify-content-center">*/}
+                {/*            <label htmlFor="name" className="rsvpHeader">Did You Mean:</label>*/}
+                {/*        </div>*/}
+                {/*        <div className="row justify-content-center">*/}
+                {/*            <div className="col-md-8 ">*/}
+                {/*                {choices.map((guest, index) => (*/}
+                {/*                    <div className="row" key={index}>*/}
+                {/*                        <button className="sub_button" onClick={() => makeChoice(guest)}>*/}
+                {/*                            {guest.name}*/}
+                {/*                        </button>*/}
+                {/*                    </div>*/}
+                {/*                ))}*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*)}*/}
 
-                                {choices.map((guest, index) => (
-                                    <div className="row">
-
-                                        <button className="sub_button" key={index} onClick={() => makeChoice(guest)}>
-                                            {guest.name}
-                                        </button>
-                                    </div>
-                                ))}
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                )}
                 {isInvited && guests.length > 0 && !isAttending && (
 
                     <div className="col-12 justify-content-center">
                         <div className="row">
-                            <h1 className="row dateHeader">
+                            <h1 className="row dateHeader green_text">
                                 {capitalizeWords(name)}
                             </h1>
 
@@ -294,21 +331,22 @@ const RSVP = () => {
                 {isAttending && !finalSubmit &&(
                     <div className="col-12">
                         <div className="row">
-                            <div className="row">
+                            <div className="rsvp_row">
                                 <div className="col-12">
-                                    <div className="row">
-                                        <label htmlFor="name">Dietary Restrictions:</label>
+                                    <div className="rsvp_question">
+                                        <label htmlFor="name" className="rsvpHeader">Dietary Restrictions:</label>
                                     </div>
                                 </div>
 
                             </div>
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="row">
+                            <div className="rsvp_row">
+                                <div className="rsvp_col">
+                                    <div className="">
                                         <input
                                             type="text"
                                             id="diet"
                                             name="diet"
+                                            className="rsvp_input input_box"
                                             value={diet}
                                             onChange={(e) => setDiet(e.target.value)}
                                         />
@@ -321,22 +359,23 @@ const RSVP = () => {
 
                         </div>
                         <div>
-                            <div className="row">
+                            <div className="rsvp_row">
                                 <div className="col-12">
-                                    <div className="row">
-                                        <label htmlFor="name">Additional notes for the couple:</label>
+                                    <div className="rsvp_question">
+                                        <label htmlFor="name" className="rsvpHeader">Additional notes for the couple:</label>
                                     </div>
                                 </div>
 
                             </div>
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="row">
+                            <div className="rsvp_row">
+                                <div className="rsvp_col">
+                                    <div className="">
 
                                         <input
                                             type="text"
                                             id="notes"
                                             name="notes"
+                                            className="rsvp_input input_box"
                                             value={notes}
                                             onChange={(e) => setNotes(e.target.value)}
                                         />
@@ -347,7 +386,7 @@ const RSVP = () => {
 
                         </div>
 
-                        <button onClick={submitNotes}>submit</button>
+                        <button className="sub_button" onClick={submitNotes}>submit</button>
 
                     </div>
 
@@ -356,10 +395,10 @@ const RSVP = () => {
                     <div className="row justify-content-center">
                         <div className="col-md-8">
                             <div className="row justify-content-center">
-                                <h1 className="text-center">
-                                    thank you for submitting!
+                                <h1 className="text-center dateHeader green_text">
+                                    Thank You For Submitting!
                                 </h1>
-                                <h5 className="text-center">
+                                <h5 className="text-center inter">
                                     We look forward to sharing our special day with you.
                                 </h5>
                             </div>

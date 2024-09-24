@@ -1,21 +1,27 @@
-import tones from './tones.jpg'
-import parking from './lodgeDetails.jpg'
+import tones from './bgAssets/tones.jpg'
+import parking from './bgAssets/lodgeDetails.jpg'
+import map from './bgAssets/map.png'
 const FaqInfo = [
     {
         question:"Where and when is the wedding taking place?",
-        answer:"The location is the Happy Days Lodge located in Peninsula, OH. The venue is within Cuyahoga Valley National Park and trails are accessible from the venue for those interested. The date is December 28th, 2024 and the time is TBD",
-        extra_info: false
-    },
-    {
-        question:"What is the parking situation?",
-        answer: 'The venue has a few parking spots directly connected to the lodge, though that is reserved for catering and anyone with accessibility concerns. For other guests, the lodge has a parking lot across the street with an underground path connected to the lodge.',
-        extra_info:{
-            image:parking,
-            lists:false
+        answer:"The location is the Happy Days Lodge located in Peninsula, OH. The venue is within Cuyahoga Valley National Park and trails are accessible from the venue for those interested. The date is December 28th, 2024 and the time is 4PM",
+        extra_info: {
+            image:map,
+            lists:false,
+            scheme:false
         }
     },
     {
-        question:"Will there be any accommodations provided for out of town guests?",
+        question:"What is the parking situation?",
+        answer: 'The venue has a few parking spots directly connected to the lodge, though those spots are reserved for catering and anyone with accessibility concerns. For other guests, the lodge has a parking lot across the street with an underground path connected to the lodge.',
+        extra_info:{
+            image:parking,
+            lists:false,
+            scheme:false
+        }
+    },
+    {
+        question:"Will there be accommodations provided for guests?",
         answer:"As of now we are not planning to rent out any hotels nearby for guests, though close friends and members of the wedding party are invited to stay with us at the Stanford House before and after the wedding. Attached is a link of hotels nearby, there are also AirBnbs in Peninsula. contact us if you have any questions",
         extra_info:{
             image:false,
@@ -46,20 +52,22 @@ const FaqInfo = [
                     cost:"$130-200"
                 },
 
-            ]
+            ],
+            scheme: false
         }
     },
     {
         question:"What are the wedding colors?",
         answer:"There are no set wedding colors, though we are trying to stick with jewel toned colors, with a bit of a focus on Emerald",
         extra_info:{
-            image:tones,
-            lists:false
+            image:false,
+            lists:false,
+            scheme: true
         }
     },
     {
         question:"What is the dress code?",
-        answer:"We expect guests to dress somewhat formally, though do not feel pressured into wearing tuxedos or three piece suits. We want our guests to feel comfortable and we encourage everyone to be creative, colorful, and whimsical with what they wear. Jewel tone outfits and colored blazers are encouraged.",
+        answer:"We expect guests to dress in cocktail attire, though do not feel pressured to dress too fancy. We want our guests to feel comfortable and we encourage everyone to be creative, colorful, and whimsical with what they wear. Jewel tone outfits and colored blazers are encouraged.",
         extra_info: false
     },
 

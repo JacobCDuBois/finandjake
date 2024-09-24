@@ -7,6 +7,30 @@
   width: 100vw;
   height: 100vh;
 }
+.parrots{
+  background-image: url('../public/parrots.png');
+  background-size: cover; /* Adjust to 'contain' or other values as needed */
+  background-position: center; /* Adjust as needed */
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+
+}
+.bg_border{
+  background-image: url('bgAssets/borderhalf.png');
+  background-size: cover; /* Adjust to 'contain' or other values as needed */
+  background-position: center; /* Adjust as needed */
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+
+}
+.bg_image_color{
+  /*background-size: cover;*/
+  background-size: cover;
+  background-position: center;
+  background-image: url('bgAssets/bordercolored.png');
+}
 .rsvp_img{
   /*background-image: url('../public/dance.png');*/
   position: fixed;
@@ -18,9 +42,16 @@
   transform: scaleX(-1);
 
 }
+.App{
+  /*min-height: 100vh;*/
+  background-color: #fff5d2;
+
+}
 .App-menu {
   position: fixed; /* or 'absolute' depending on your needs */
   top: 0;
+  /*background-color: #fff5d2;*/
+
   left: 0;
   width: 100%;
   /*background-color: rgba(0, 0, 0, 0.7); !* Semi-transparent background for better visibility *!*/
@@ -43,20 +74,46 @@
 
 .App-menu a {
   text-decoration: none;
-  color: black;
+  /*color: black;*/
+  color: #4c5b2d;
+  font-size: 30px;
   font-weight: bold;
 }
 
 .App-menu a:hover {
-  color: #61dafb;
+  /*color: #61dafb;*/
+  color:#e2a40d;
+}
+.border_frame{
+  width: 100vw;
+  position: absolute;
 }
 .pageContent{
   margin-top: 100px;
   display: flex;
   justify-content: center;
 }
+.color_tool{
+  /*min-width: 100%;*/
+  /*display: flex;*/
+  /*justify-content: space-evenly;*/
+
+}
+.divider{
+  background-color: #4c5b2d;
+  height: 120vh;
+  width: 100vw;
+}
 .radio_list{
   font-size: 24px;
+}
+.circle_div {
+  flex-basis: calc(100% / 7); /* Each circle will take 1/6 of the container's width */
+  aspect-ratio: 1/1;
+   /* Set a fixed height (same as width to make it a perfect circle) */
+  border-radius: 50%; /* Make it a perfect circle */
+  /*border: 10px solid #4c5b2d; !* Add a thick border with the color #fff5d2 *!*/
+  margin: 10px auto;
 }
 .big{
   min-height: 65vh;
@@ -83,6 +140,38 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.frame-container {
+  position: relative;
+  /*width: 100%;*/
+  text-align: center;
+}
+.frame-image{
+  width: 100%;
+  display: block;
+  /*z-index: -100;*/
+}
+
+
+.content{
+  position: absolute;
+  /*color: rgb(255, 255, 255);*/
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /*background-color: rgba(41, 41, 41, 0.8);*/
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 16px;
+}
+
+
+/* Optional: Ensure the content fits well within the frame */
+.content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the content area */
 }
 .image-container {
   position: relative;
@@ -192,7 +281,7 @@
   /* Add any additional styles for hover effect */
 }
 .middle-panel{
-  padding-top: 15em;
+  padding-top: 5em;
   padding-bottom: 10em;
 }
 
@@ -200,25 +289,37 @@
   font-family: 'Mrs Saint Delafield', cursive;font-family: 'Mrs Saint Delafield', cursive;
 }
 .dateHeader{
-  font-family: 'Dynalight', cursive;
-  font-size: 64px;
+  /*font-family: 'Dynalight', cursive;*/
+  font-family: "Germania One", system-ui;
+  font-size: 100px;
+
   /*font-weight: bold;*/
 }
 .rsvpHeader{
-  font-family: 'Dynalight', cursive;
-  font-size: 32px;
+  font-family: "Germania One", system-ui;
+  font-size: 60px;
+  color: #4c5b2d;
   /*font-weight: bold;*/
 }
-.address_sub{
+.faq_answer{
+  font-family: "Germania One", system-ui;
   font-size: 24px;
+  color: #4c5b2d;
+  /*font-weight: bold;*/
+}
+
+
+.address_sub{
+  font-size: 35px;
+  font-family: "Inter", sans-serif;
   /*font-weight: bold;*/
 }
 
 .sub_button{
   padding: 15px 40px;
-  background: #000;
+  background: #4c5b2d;
   border:0;
-  color: #fff;
+  color: #fff5d2;
   text-transform: uppercase;
   font-family: helvetica;
   font-size: 12px;
@@ -227,7 +328,9 @@
   transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
   cursor: pointer;
   display: block;
+  width: 100%;
   margin: 100px auto;
+  padding-right: 60px;
 }
 
 .sub_button::after,
@@ -235,7 +338,7 @@
   content: "";
   position: absolute;
   top: 50%;
-  right: 0px;
+  right: 15px;
   transform: translateY(-50%);
   opacity: 0;
   transition:         all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -293,8 +396,8 @@ input[type="radio"] {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: black;
-  color: white;
+  background-color: #AB9c66;
+  color: #fff5d2;
   text-align: center;
   cursor: pointer;
   border-radius: 4px;
@@ -304,10 +407,282 @@ input[type="radio"] {
 
 /* Change background color when the radio button is checked */
 .radio-item.red-bg input:checked + label {
-  background-color: red;
+  background-color: #B04A47;
 }
-
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff5d2; /* Ensure this matches your desired background color */
+}
 .radio-item.green-bg input:checked + label {
-  background-color: green;
+  background-color: #6A9B67;
+}
+.bg_main{
+  background-color: #fff5d2;
+}
+.time_card_container{
+  display: flex; /* Use flexbox to align cards horizontally */
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center cards horizontally within the container */
+  flex-wrap: wrap;
+  padding-top: 100px;
+}
+.time_card {
+  justify-content: center;
+  /*border: 4px solid #B04A47; !* Thick border with a muted red color *!*/
+  /*border-radius: 15px; !* Rounded corners *!*/
+  /*padding: 20px; !* Inner spacing *!*/
+  min-height: 5%;
+  /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); !* Subtle shadow for depth *!*/
+  /*background-color: #ffffff; !* Background color *!*/
+  /*transition: box-shadow 0.3s ease; !* Smooth shadow transition on hover *!*/
 }
 
+/*.time_card:hover {*/
+/*  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); !* Slightly stronger shadow on hover *!*/
+/*}*/
+
+.card_text{
+  justify-content: center;
+  text-align: center;
+  font-family: "Germania One", system-ui;
+  font-size: 32px;
+  /*color: #4c5b2d;*/
+  color:#fff5d2;
+}
+.date_text{
+  justify-content: center;
+  text-align: center;
+  /*color: #4c5b2d;*/
+  color:#fff5d2;
+  font-family: "Germania One", system-ui;
+  /*font-family: 'Dynalight', cursive;*/
+  font-size: 72px;
+}
+.address_text {
+  padding-top: 50px;
+}
+.registry_section{
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+
+}
+.registry_banner{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1000;
+}
+
+.rsvp_question{
+  width: 100%;
+  /*display: flex;*/
+  /*justify-content: center;*/
+}
+.rsvp_input{
+  width: 80%;
+  padding: 0px;
+}
+.input_box{
+  color: #4c5b2d;
+  background-color: #fff5d2;
+  border: 3px solid #4c5b2d; /* Thick black border */
+  font-size: 24px;
+  font-family: "Inter", sans-serif;
+}
+.rsvp_col{
+  /*display: flex;*/
+  width: 100%;
+  /*justify-content: center;*/
+}
+.rsvp_row{
+  display: flex;
+  width: 100%;
+  /*justify-content: center;*/
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.faq_question{
+  width: 100%;
+
+}
+.faq_answer{
+
+}
+.green_text{
+  color: #4c5b2d;
+}
+.light_text{
+  color: #fff5d2;
+}
+.rsvp_corner_r{
+  position: fixed;         /* Fix the image to the viewport */
+  bottom: 0;               /* Align to the bottom */
+  right: 0;                /* Align to the right corner */
+  /*transform: scaleY(-1);*/
+  transform: scaleX(-1) scaleY(-1);
+  width: 35vw;
+  height: auto;
+  pointer-events: none;
+  /*z-index: -1;*/
+}
+.quiz_page{
+  padding-top: 15vh;
+  align-items: center;
+}
+.quiz_border{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+}
+.faq_border{
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  height: auto;
+  /*top: 5vh;*/
+
+}
+.no_space{
+  padding: 0px;
+
+}
+.faq_sheet{
+  padding-top: 35vh;
+}
+body{
+  overflow-x: hidden;
+}
+.rsvp_corner_l{
+  position: fixed;         /* Fix the image to the viewport */
+  /*bottom: 0;               !* Align to the bottom *!*/
+  left: 0;
+  top: 0;
+  /* Align to the right corner */
+  /*transform: scaleX(-1);*/
+  width: 35vw;
+  height: auto;
+  pointer-events: none;
+  /*z-index: -1;*/
+}
+.inter{
+  font-family: "Inter", sans-serif;
+  color: #4c5b2d;
+}
+
+@media only screen and (max-width: 600px){
+  .faq_question{
+    text-align: center;
+
+  }
+  .faq_answer{
+    text-align: center;
+  }
+  .App-menu {
+    position: fixed; /* or 'absolute' depending on your needs */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    justify-content: center;
+    display: flex;
+    /*background-color: rgba(0, 0, 0, 0.7); !* Semi-transparent background for better visibility *!*/
+    z-index: 1000; /* Ensure the navigation is above other elements */
+
+  }
+
+  .App-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    /*justify-content: flex-end;*/
+    justify-content: space-evenly;
+    align-items: center;
+    /*height: 50px; !* Adjust as needed *!*/
+    margin-right: 0px;
+  }
+
+  .App-menu li {
+    margin: 5px;
+  }
+    /*margin-right: 3px;*/
+
+  .App-menu a {
+    font-size: 24px;
+  }
+  .address_text {
+    /*padding-top: 10px;*/
+  }
+
+  .rsvpHeader{
+    /*font-family: 'Dynalight', cursive;*/
+    font-size: 24px;
+    /*justify-content: center;*/
+    /*display: flex;*/
+    /*font-weight: bold;*/
+  }
+  .rsvp_question{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .rsvp_input{
+    width: 90vw;
+    padding: 0px;
+  }
+  .rsvp_col{
+    display: flex;
+    justify-content: center;
+  }
+  .rsvp_row{
+    display: flex;
+    justify-content: center;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .dateHeader{
+    /*color:#e2a40d;*/
+    z-index: 1;
+    font-size: 34px;
+  }
+  .divider{
+    background-color: #4c5b2d;
+    height: 40vh;
+    width: 100vw;
+  }
+  .address_sub{
+    font-size: 24px;
+  }
+  .disappear{
+    display: none;
+  }
+  .faq_sheet{
+    padding-top: 5vh;
+  }
+  .rsvp_change{
+    justify-content: center;
+  }
+  .rsvp_input{
+    width: 100vw;
+  }
+  .parrots{
+    background-size: cover; /* Adjust to 'contain' or other values as needed */
+    background-position: right; /* Adjust as needed */
+    /*background-repeat: repeat-x;*/
+    height: 100%;
+    width: auto;
+  }
+  .border_frame{
+    width: 100vw;
+    ;
+    padding: 0px;
+
+  }
+
+
+
+
+}
